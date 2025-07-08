@@ -10,21 +10,22 @@
 
 interface ButtonProps {
     label : string;
-    onClick : (param : string) => string;
+    // onClick : (param : string) => string;
+    handleFunc : () => void;
     variant : "primary" | "secondary" | "danger"; // This is a union of string literal types
     type? : "button" | "submit" | "reset"; // Optional prop with union type
     disable? : boolean; // Optional prop with boolean
 }
 
-const Button = ({label,onClick,variant,type,disable} : ButtonProps) => {
+const Button = ({label,handleFunc,variant,type,disable} : ButtonProps) => {
 
-    console.log(onClick, "onClick function from Button component");
+    console.log(handleFunc, "onClick function from Button component");
+    console.log(variant);
 
-      const handleSeeMore = (data : string) => {
-        const message = onClick(data); // string
-        console.log(data);
-        console.log("Returned from onClick:", message);
-  };
+    // ()=>{
+    //         console.log("See more clicked");
+    //     // Implement your logic to fetch more posts or navigate to another page
+    //     } 'onClick function from Button component
 
     const base = "px-6 py-3 text-white text-sm rounded-md transition-all duration-200"
     const variants = {
@@ -37,9 +38,9 @@ const Button = ({label,onClick,variant,type,disable} : ButtonProps) => {
     return (
         <button
             type={type || "button"}
-            onClick={handleSeeMore}
+            onClick={handleFunc}
             disabled={disable}
-            className={`${base} ${variants["primary"]}`}>
+            className={`${base} ${variants[variant]}`}>
             {label}
         </button>
     );

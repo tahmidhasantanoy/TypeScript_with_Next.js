@@ -1,3 +1,5 @@
+// TODO : Understand the working flow of function props drilling.
+
 "use client";
 
 /* 
@@ -79,8 +81,6 @@ interface IPost {
 
 const ClientPosts = ({posts} : /* IClientPostsProps */IPost) => {
 
-    console.log(posts);
-
     const data = "Tahmid hasan"
     const handleSeeMore = () => {
         console.log("See more clicked");
@@ -107,6 +107,7 @@ const ClientPosts = ({posts} : /* IClientPostsProps */IPost) => {
         // </div>
 
 
+<>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
   {posts.map((post: { id: number, title: string, body: string }) => (
     <div key={post?.id} className="rounded-xl overflow-hidden">
@@ -132,8 +133,11 @@ const ClientPosts = ({posts} : /* IClientPostsProps */IPost) => {
       </div>
     </div>
   ))}
-  <Button label={"See more"} onClick={() => handleSeeMore()} variant="secondary" type={"submit"} disable={true} />
 </div>
+<div>
+    <Button label={"See more"} handleFunc={handleSeeMore} variant="secondary" type={"submit"} disable={false} />
+</div>
+</>
 );
 };
 
