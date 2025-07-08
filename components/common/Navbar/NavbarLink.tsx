@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* export const leftMenus = [
     {label : "trade", href : "/"},
     {label : "Explore", href : "/"},
