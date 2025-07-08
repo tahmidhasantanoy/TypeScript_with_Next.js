@@ -77,11 +77,8 @@ interface IPost {
     Accessing example: data.posts[0].title */
 }
 
-
-
 const ClientPosts = ({posts} : /* IClientPostsProps */IPost) => {
 
-    const data = "Tahmid hasan"
     const handleSeeMore = () => {
         console.log("See more clicked");
         // Implement your logic to fetch more posts or navigate to another page
